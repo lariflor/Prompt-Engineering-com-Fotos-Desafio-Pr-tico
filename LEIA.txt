@@ -1,0 +1,36 @@
+-- Criando a tabela para galeria na Tabela Editor + informações
+CREATE TABLE public.galeria (
+  id SERIAL PRIMARY KEY,
+  url TEXT NOT NULL,
+  descricao TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Liberando a segurança
+ALTER TABLE public.galeria ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public insert"
+  ON public.galeria
+  FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+CREATE POLICY "Allow public select"
+  ON public.galeria
+  FOR SELECT
+  TO public
+  USING (true);
+
+
+-- Liberando upload (INSERT) no bucket "imagens" pra usuários anônimos.
+create policy "Allow anon upload"
+on storage.objects
+for insert
+to anon
+with check (bucket_id = 'imagens');
+
+
+-- Pegue a API do Supabase e coloque essa parte de # no arquivo script.js.
+const SUPABASE_URL = "#";
+const SUPABASE_ANON_KEY = "#";
