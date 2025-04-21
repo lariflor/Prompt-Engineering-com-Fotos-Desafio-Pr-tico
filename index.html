@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>&#128247; Fotos</h1>
+        <form id="upload-form">
+            <label class="custom-file-upload">
+                <input type="file" id="file-input" required>
+                &#128194; Escolher imagem
+            </label>
+            <input type="text" id="desc-input" placeholder="Escreva o que está pensando" required>
+            <button type="submit">Postar</button>
+        </form>
+    </header>
+
+    <main>
+        <div id="gallery" class="gallery"></div>
+    </main>
+
+    <footer>
+        Feito com &#128149; e Supabase
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
